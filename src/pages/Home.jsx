@@ -73,19 +73,12 @@ function Home() {
             </Link>
 
             <p>
-              From ₦
+              Price ₦
               {(activeEvent.regularPrice || activeEvent.price).toLocaleString()}
             </p>
           </div>
         </div>
 
-        <button className="tm-carousel-btn tm-prev" onClick={prevSlide}>
-          ❮
-        </button>
-
-        <button className="tm-carousel-btn tm-next" onClick={nextSlide}>
-          ❯
-        </button>
 
         <div className="tm-dots">
           {featuredEvents.map((event, index) => (

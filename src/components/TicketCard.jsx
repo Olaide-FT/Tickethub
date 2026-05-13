@@ -8,19 +8,19 @@ function TicketCard({ booking, deleteBooking }) {
       <h2>{booking.eventName}</h2>
 
       <p>
-        <strong>Date:</strong> {booking.date} | {booking.time}
+        <b>Date:</b> {booking.date} | {booking.time}
       </p>
 
       <p>
-        <strong>Venue:</strong> {booking.location}
+        <b>Venue:</b> {booking.location}
       </p>
 
       <p>
-        <strong>Ticket:</strong> {booking.ticketType} x {booking.quantity}
+        <b>Ticket:</b> {booking.ticketType} x {booking.quantity}
       </p>
 
       <p>
-        <strong>Reference:</strong> {booking.bookingReference}
+        <b>Reference:</b> {booking.bookingReference}
       </p>
 
       <h3>₦{booking.totalPrice.toLocaleString()}</h3>

@@ -6,7 +6,7 @@ function EventCard({ event }) {
       <img src={event.image} alt={event.name} />
 
       <div className="event-body">
-        <span className="badge">{event.category}</span>
+        <b className="badge">{event.category}</b>
 
         <h2>{event.name}</h2>
 

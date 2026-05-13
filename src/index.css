@@ -51,6 +51,7 @@ a {
 
 .nav-links {
   display: flex;
+  align-items: center;
   gap: 20px;
 }
 
@@ -64,6 +65,57 @@ a {
   color: var(--primary);
 }
 
+.menu-btn {
+  display: none;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  font-size: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Small and medium screens */
+@media (max-width: 900px) {
+  .navbar {
+    position: sticky;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 75px;
+    right: 7%;
+    width: 230px;
+    background-color: white;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 15px;
+    border-radius: 16px;
+    box-shadow: var(--deep-shadow);
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+  }
+
+  .nav-links a:hover {
+    background-color: var(--primary-soft);
+  }
+}
 /* GLOBAL LAYOUT */
 
 .container {
@@ -428,37 +480,169 @@ a {
 
 .event-detail {
   display: grid;
-  grid-template-columns: 1.4fr 0.8fr;
+  grid-template-columns: 1.3fr 0.9fr;
   gap: 30px;
-  align-items: start;
+  align-items: stretch;
+}
+
+.event-info {
+  background-color: var(--card);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
 }
 
 .detail-image {
   width: 100%;
+  height: 360px;
+  object-fit: cover;
   border-radius: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
+}
+
+.event-info h1 {
+  font-size: 36px;
+  line-height: 1.15;
+  margin: 12px 0 18px;
+  color: var(--text);
+}
+
+.event-meta-box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin: 18px 0;
+}
+
+.event-meta-item {
+  background-color: var(--primary-soft);
+  padding: 14px;
+  border-radius: 16px;
+}
+
+.event-meta-item span {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.event-meta-item strong {
+  color: var(--primary);
+  font-size: 15px;
 }
 
 .description {
-  line-height: 1.7;
+  line-height: 1.8;
   color: var(--muted);
+  margin-top: 12px;
 }
 
-.price {
-  font-weight: bold;
-  color: var(--primary);
+.price-box {
+  background-color: var(--secondary);
+  color: white;
+  padding: 18px;
+  border-radius: 18px;
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
 }
 
-/* TICKET FORM */
+.price-box div {
+  flex: 1;
+}
+
+.price-box span {
+  display: block;
+  color: #cbd5e1;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.price-box strong {
+  font-size: 20px;
+}
 
 .ticket-form {
-  padding: 25px;
+  background-color: var(--card);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  padding: 28px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
+}
+
+.ticket-form h2 {
+  margin-top: 0;
+  font-size: 26px;
+  color: var(--text);
 }
 
 .ticket-form label {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.ticket-form input,
+.ticket-form select {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-size: 15px;
+  outline: none;
+}
+
+.ticket-form input:focus,
+.ticket-form select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.08);
+}
+
+.total-box {
+  background-color: var(--primary-soft);
+  border-radius: 18px;
+  padding: 18px;
+  margin: 12px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total-box p {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.total-box h3 {
+  color: var(--primary);
+  font-size: 24px;
+}
+
+@media (max-width: 900px) {
+  .event-detail {
+    grid-template-columns: 1fr;
+  }
+
+  .event-meta-box {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-image {
+    height: 280px;
+  }
+
+  .price-box {
+    flex-direction: column;
+  }
+}/* TICKET FORM */
+
+
+/* .ticket-form label {
   font-weight: bold;
 }
 
@@ -482,7 +666,7 @@ a {
 
 .total-box h3 {
   color: var(--primary);
-}
+} */
 
 /* CONFIRMATION */
 
