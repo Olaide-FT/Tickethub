@@ -81,6 +81,7 @@ a {
 @media (max-width: 900px) {
   .navbar {
     position: sticky;
+    
   }
 
   .menu-btn {
@@ -839,7 +840,6 @@ a {
 
 @media (max-width: 600px) {
   .navbar {
-    flex-direction: column;
     gap: 15px;
   }
 
