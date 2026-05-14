@@ -719,28 +719,54 @@ a {
   color: var(--muted);
 }
 
-.qr-box {
-  text-align: center;
-  background-color: var(--primary-soft);
-  padding: 18px;
-  border-radius: 16px;
-  margin: 20px 0;
+.ticket-card-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 22px;
 }
 
-.qr-box img {
-  width: 160px;
-  height: 160px;
+.ticket-details {
+  flex: 1;
+}
+
+.ticket-qr {
+  background-color: var(--primary-soft);
+  padding: 16px;
+  border-radius: 18px;
+  text-align: center;
+  min-width: 170px;
+}
+
+.ticket-qr img {
+  width: 140px;
+  height: 140px;
   background-color: white;
-  padding: 10px;
+  padding: 8px;
   border-radius: 12px;
 }
 
-.qr-box p {
-  margin: 10px 0 0;
+.ticket-qr p {
+  margin: 8px 0 0;
+  font-size: 13px;
   color: var(--muted);
-  font-size: 14px;
 }
 
+.confirmation-card .ticket-qr img {
+  width: 160px;
+  height: 160px;
+}
+
+@media (max-width: 700px) {
+  .ticket-card-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ticket-qr {
+    width: 100%;
+  }
+}
 /* FOOTER */
 
 .footer {

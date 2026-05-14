@@ -22,8 +22,29 @@ function App() {
   }, [bookings]);
 
   const addBooking = (newBooking) => {
-    setBookings((prevBookings) => [newBooking, ...prevBookings]);
-  };
+  setBookings((prevBookings) => {
+    const existingBooking = prevBookings.find(
+      (booking) =>
+        booking.eventId === newBooking.eventId &&
+        booking.ticketType === newBooking.ticketType &&
+        booking.email === newBooking.email
+    );
+
+    if (existingBooking) {
+      return prevBookings.map((booking) =>
+        booking.bookingReference === existingBooking.bookingReference
+          ? {
+              ...booking,
+              quantity: booking.quantity + newBooking.quantity,
+              totalPrice: booking.totalPrice + newBooking.totalPrice,
+            }
+          : booking
+      );
+    }
+
+    return [newBooking, ...prevBookings];
+  });
+};
 
   const deleteBooking = (bookingReference) => {
     setBookings((prevBookings) =>

@@ -1,49 +1,38 @@
+import TicketQRCode from "./TicketQRCode";
+
 function ConfirmationCard({ booking }) {
-  const qrData = encodeURIComponent(
-    `Ticket Reference: ${booking.bookingReference}
-Event: ${booking.eventName}
-Name: ${booking.attendeeName}
-Ticket: ${booking.ticketType} x ${booking.quantity}
-Total: ₦${booking.totalPrice}`
-  );
-
-  const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${qrData}`;
-
   return (
-    <div className="confirmation-card">
+    <article className="confirmation-card">
       <h2>{booking.eventName}</h2>
 
-      <div className="qr-box">
-        <img src={qrCodeUrl} alt="Ticket QR Code" />
-        <p>Scan ticket QR code</p>
-      </div>
+      <TicketQRCode booking={booking} size={160} />
 
       <p>
-        <b>Booking Reference:</b> {booking.bookingReference}
+        <strong>Booking Reference:</strong> {booking.bookingReference}
       </p>
 
       <p>
-        <b>Date:</b> {booking.date} | {booking.time}
+        <strong>Date:</strong> {booking.date} | {booking.time}
       </p>
 
       <p>
-        <b>Venue:</b> {booking.location}
+        <strong>Venue:</strong> {booking.location}
       </p>
 
       <p>
-        <b>Ticket:</b> {booking.ticketType} x {booking.quantity}
+        <strong>Ticket:</strong> {booking.ticketType} x {booking.quantity}
       </p>
 
       <p>
-        <b>Name:</b> {booking.attendeeName}
+        <strong>Name:</strong> {booking.attendeeName}
       </p>
 
       <p>
-        <b>Email:</b> {booking.email}
+        <strong>Email:</strong> {booking.email}
       </p>
 
       <h3>Total Paid: ₦{booking.totalPrice.toLocaleString()}</h3>
-    </div>
+    </article>
   );
 }
 
